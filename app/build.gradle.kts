@@ -13,6 +13,13 @@ android {
         targetSdk = 36
         versionCode = 1
         versionName = "1.0"
+        manifestPlaceholders["admobAppId"] =
+            project.findProperty("ADMOB_APP_ID")?.toString()
+                ?: "ca-app-pub-3940256099942544~3347511713"
+        buildConfigField(
+            "String", "ADMOB_INTERSTITIAL_ID",
+            "\"${project.findProperty("ADMOB_INTERSTITIAL_ID") ?: "ca-app-pub-3940256099942544/1033173712"}\""
+        )
     }
 
     buildTypes {
@@ -26,6 +33,7 @@ android {
     }
     buildFeatures {
         viewBinding = true
+        buildConfig = true
     }
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_1_8
@@ -42,4 +50,5 @@ dependencies {
     implementation(libs.material)
     implementation(libs.androidx.constraintlayout)
     implementation("com.google.android.flexbox:flexbox:3.0.0")
+    implementation(libs.play.services.ads)
 }

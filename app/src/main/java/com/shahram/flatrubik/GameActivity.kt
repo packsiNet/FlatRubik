@@ -25,6 +25,7 @@ class GameActivity : AppCompatActivity() {
     private lateinit var binding: ActivityGameBinding
     private lateinit var level: Level
     private lateinit var activeBoard: PuzzleBoard
+    private lateinit var adManager: AdManager
 
     private enum class Phase { COUNTDOWN, PLAY, WON }
     private enum class FeedbackMode { SOUND, VIBRATE, SILENT }
@@ -80,6 +81,9 @@ class GameActivity : AppCompatActivity() {
         val levelId = intent.getStringExtra("levelId") ?: "easy"
         level = LEVELS.first { it.id == levelId }
 
+        adManager = AdManager(this)
+        adManager.load()
+
         loadFeedbackMode()
         setupHeader()
         setupBoard()
@@ -104,7 +108,7 @@ class GameActivity : AppCompatActivity() {
         AlertDialog.Builder(this, R.style.WinDialog)
             .setTitle("Restart?")
             .setMessage("Current progress will be lost.")
-            .setPositiveButton("RESTART") { _, _ -> resetGame() }
+            .setPositiveButton("RESTART") { _, _ -> adManager.showIfReady { resetGame() } }
             .setNegativeButton("CANCEL", null)
             .show()
     }
@@ -248,8 +252,8 @@ class GameActivity : AppCompatActivity() {
         AlertDialog.Builder(this, R.style.WinDialog)
             .setTitle(if (isRecord) "🏆 SOLVED!" else "✨ SOLVED!")
             .setMessage(msg)
-            .setPositiveButton("NEW GAME") { _, _ -> resetGame() }
-            .setNegativeButton("← BACK") { _, _ -> finish() }
+            .setPositiveButton("NEW GAME") { _, _ -> adManager.showIfReady { resetGame() } }
+            .setNegativeButton("← BACK") { _, _ -> adManager.showIfReady { finish() } }
             .setCancelable(false)
             .show()
     }
