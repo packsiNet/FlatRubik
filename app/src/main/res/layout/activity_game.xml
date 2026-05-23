@@ -1,0 +1,234 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#0a0f17"
+    android:orientation="vertical">
+
+    <!-- Header -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:paddingTop="12dp"
+        android:paddingBottom="8dp">
+
+        <Button
+            android:id="@+id/btnBack"
+            android:layout_width="wrap_content"
+            android:layout_height="36dp"
+            android:text="← BACK"
+            android:textSize="11sp"
+            android:textColor="#B3FFFFFF"
+            android:fontFamily="monospace"
+            android:letterSpacing="0.1"
+            android:background="@drawable/btn_back_bg"
+            android:paddingHorizontal="12dp"
+            style="?android:attr/borderlessButtonStyle"/>
+
+        <TextView
+            android:id="@+id/tvLevelName"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:textSize="16sp"
+            android:fontFamily="monospace"
+            android:textStyle="bold"
+            android:letterSpacing="0.12"/>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="end">
+
+            <TextView
+                android:id="@+id/tvBest"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="#A6FFFFFF"
+                android:textSize="10sp"
+                android:fontFamily="monospace"
+                android:letterSpacing="0.08"/>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="4dp">
+
+                <Button
+                    android:id="@+id/btnSettings"
+                    android:layout_width="wrap_content"
+                    android:layout_height="30dp"
+                    android:text="⚙"
+                    android:textSize="13sp"
+                    android:textColor="#B3FFFFFF"
+                    android:fontFamily="monospace"
+                    android:background="@drawable/btn_back_bg"
+                    android:paddingHorizontal="10dp"
+                    android:layout_marginEnd="4dp"
+                    style="?android:attr/borderlessButtonStyle"/>
+
+                <Button
+                    android:id="@+id/btnReset"
+                    android:layout_width="wrap_content"
+                    android:layout_height="30dp"
+                    android:text="↺ RESET"
+                    android:textSize="10sp"
+                    android:textColor="#B3FFFFFF"
+                    android:fontFamily="monospace"
+                    android:letterSpacing="0.1"
+                    android:background="@drawable/btn_back_bg"
+                    android:paddingHorizontal="10dp"
+                    style="?android:attr/borderlessButtonStyle"/>
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+
+    <!-- Stats row -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:background="@drawable/stats_bg"
+        android:layout_marginBottom="12dp">
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:padding="10dp">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="MOVES"
+                android:textColor="#66FFFFFF"
+                android:textSize="9sp"
+                android:fontFamily="monospace"
+                android:letterSpacing="0.3"
+                android:layout_marginBottom="4dp"/>
+            <TextView
+                android:id="@+id/tvMoves"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="000"
+                android:textColor="#FFFFFF"
+                android:textSize="20sp"
+                android:fontFamily="monospace"
+                android:textStyle="bold"/>
+        </LinearLayout>
+
+        <View android:layout_width="1dp" android:layout_height="match_parent" android:background="#0FFFFFFF"/>
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:padding="10dp">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="TIME"
+                android:textColor="#66FFFFFF"
+                android:textSize="9sp"
+                android:fontFamily="monospace"
+                android:letterSpacing="0.3"
+                android:layout_marginBottom="4dp"/>
+            <TextView
+                android:id="@+id/tvTime"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="0:00"
+                android:textColor="#FFFFFF"
+                android:textSize="20sp"
+                android:fontFamily="monospace"
+                android:textStyle="bold"/>
+        </LinearLayout>
+
+        <View android:layout_width="1dp" android:layout_height="match_parent" android:background="#0FFFFFFF"/>
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:padding="10dp">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="ZONES"
+                android:textColor="#66FFFFFF"
+                android:textSize="9sp"
+                android:fontFamily="monospace"
+                android:letterSpacing="0.3"
+                android:layout_marginBottom="4dp"/>
+            <TextView
+                android:id="@+id/tvZones"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="0/4"
+                android:textColor="#FFFFFF"
+                android:textSize="20sp"
+                android:fontFamily="monospace"
+                android:textStyle="bold"/>
+        </LinearLayout>
+    </LinearLayout>
+
+    <!-- Progress bar -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="3dp"
+        android:orientation="horizontal"
+        android:background="#0CFFFFFF"
+        android:layout_marginBottom="10dp">
+        <View
+            android:id="@+id/progressFill"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="0"
+            android:background="@drawable/progress_gradient"/>
+        <View
+            android:id="@+id/progressEmpty"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"/>
+    </LinearLayout>
+
+    <!-- Board + countdown overlay -->
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+
+        <com.shahram.flatrubik.BoardView
+            android:id="@+id/boardView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+
+        <com.shahram.flatrubik.CountdownView
+            android:id="@+id/countdownView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:visibility="gone"/>
+    </FrameLayout>
+
+    <!-- Legend -->
+    <com.google.android.flexbox.FlexboxLayout
+        android:id="@+id/legendContainer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingVertical="8dp"
+        app:flexWrap="wrap"
+        app:justifyContent="center"
+        app:alignItems="center"
+        xmlns:app="http://schemas.android.com/apk/res-auto"/>
+
+</LinearLayout>
